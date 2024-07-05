@@ -38,7 +38,8 @@ public class ExpiryCalculator {
     }
 
     private boolean hasDefunctScheduler(String schedulerId) {
-
+//check if it is not clustered then return true;
+        if(!isClustered) return true;
         Scheduler scheduler = schedulerDao.findInstance(schedulerId);
         if (scheduler == null) {
             log.debug("No such scheduler: {}", schedulerId);
